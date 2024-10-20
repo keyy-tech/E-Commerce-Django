@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
+
+
+.custom-container {
+    max-width: 600px; /* Limit the width of the form */
+    margin-left: 100px;
+    margin-right: 50px;
+}
+
+.form-header {
+    margin-bottom: 20px;
+}
+
+.form-header h1 {
+    font-size: 2.5rem;
+}
+
+.form-header p {
+    font-size: 1.1rem;
+}
+
+.btn-outline-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.form-check-label {
+    margin-left: 5px;
+}
+
+.custom-img img {
+    object-fit: cover;
+    height: 100vh;
+}
