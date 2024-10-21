@@ -1,4 +1,6 @@
 from django import forms
+from django.core.exceptions import ValidationError
+from django.contrib.auth.password_validation import validate_password
 from .models import CustomUser, UsersProfile
 
 
@@ -48,6 +50,14 @@ class CustomUserForm(forms.ModelForm):
             ),
         }
 
+    def clean_password(self):
+        password = self.cleaned_data.get("password")
+        try:
+            validate_password(password)
+        except ValidationError as e:
+            self.add_error("password", e)
+        return password
+
     def clean(self):
         cleaned_data = super().clean()
         password = cleaned_data.get("password")
@@ -57,24 +67,3 @@ class CustomUserForm(forms.ModelForm):
             self.add_error("confirm_password", "Passwords do not match")
 
         return cleaned_data
-
-
-class UsersProfileForm(forms.ModelForm):
-    class Meta:
-        model = UsersProfile
-        fields = "__all__"
-
-        widgets = {
-            "profile_picture": forms.FileInput(
-                attrs={"class": "form-floating p-2", "placeholder": "Profile Picture"}
-            ),
-            "address": forms.TextInput(
-                attrs={"class": "form-floating p-2", "placeholder": "Address"}
-            ),
-            "phone_number": forms.TextInput(
-                attrs={"class": "form-floating p-2", "placeholder": "Phone Number"}
-            ),
-            "date_of_birth": forms.DateInput(
-                attrs={"class": "form-floating p-2", "placeholder": "Date of Birth"}
-            ),
-        }

@@ -41,3 +41,9 @@ body {
     object-fit: cover;
     height: 100vh;
 }
+
+/* styles.css */
+.custom-alert {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
