@@ -11,6 +11,10 @@ class Category(models.Model):
         return self.title
 
 
+def default_image_picture():
+    return "products/default.png"
+
+
 class Product(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField(blank=True, null=True)
@@ -22,13 +26,13 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image1 = models.ImageField(
-        upload_to="products/", blank=True, null=True, default="products/default1.jpg"
+        upload_to="products/", blank=True, null=True, default=default_image_picture
     )
     image2 = models.ImageField(
-        upload_to="products/", blank=True, null=True, default="products/default2.jpg"
+        upload_to="products/", blank=True, null=True, default=default_image_picture
     )
     image3 = models.ImageField(
-        upload_to="products/", blank=True, null=True, default="products/default3.jpg"
+        upload_to="products/", blank=True, null=True, default=default_image_picture
     )
 
     def __str__(self):

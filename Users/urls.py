@@ -1,11 +1,14 @@
 from django.urls import path, reverse_lazy
-from . import views
+from Users import views
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("signup/", views.signup, name="signup"),
     path("login/", views.login_view, name="login"),
     path("logout/", views.logout_view, name="logout"),
+    # Users/urls.py
     path("update_profile/", views.update_profile, name="update_profile"),
     path(
         "password_reset/",
@@ -34,4 +37,5 @@ urlpatterns = [
         ),
         name="password_reset_complete",
     ),
-]
+    path("profile", views.profile, name="profile"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

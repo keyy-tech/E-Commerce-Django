@@ -67,3 +67,27 @@ class CustomUserForm(forms.ModelForm):
             self.add_error("confirm_password", "Passwords do not match")
 
         return cleaned_data
+
+
+class UsersProfileForm(forms.ModelForm):
+    class Meta:
+        model = UsersProfile
+        fields = ["profile_picture", "address", "phone_number", "date_of_birth"]
+
+        widgets = {
+            "profile_picture": forms.FileInput(
+                attrs={"class": "form-control p-2", "placeholder": "Profile Picture"}
+            ),
+            "address": forms.TextInput(
+                attrs={"class": "form-control p-2", "placeholder": "Address"}
+            ),
+            "phone_number": forms.TextInput(
+                attrs={"class": "form-control p-2", "placeholder": "Phone Number"}
+            ),
+            "date_of_birth": forms.DateInput(
+                attrs={
+                    "class": "form-control p-2",
+                    "placeholder": "Date of Birth(mmmm dd, yyyy)",
+                }
+            ),
+        }

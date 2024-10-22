@@ -20,34 +20,34 @@ class ProductForm(forms.ModelForm):
 
         widgets = {
             "title": forms.TextInput(
-                attrs={"class": "form-floating", "placeholder": "Product Title"}
+                attrs={"class": "form-control", "placeholder": "Product Title"}
             ),
             "description": forms.Textarea(
-                attrs={"class": "form-floating", "placeholder": "Product Description"}
+                attrs={"class": "form-control", "placeholder": "Product Description"}
             ),
             "price": forms.NumberInput(
-                attrs={"class": "form-floating", "placeholder": "Product Price"}
+                attrs={"class": "form-control", "placeholder": "Product Price"}
             ),
             "stock_quantity": forms.NumberInput(
-                attrs={"class": "form-floating", "placeholder": "Stock Quantity"}
+                attrs={"class": "form-control", "placeholder": "Stock Quantity"}
             ),
             "brand": forms.TextInput(
-                attrs={"class": "form-floating", "placeholder": "Brand"}
+                attrs={"class": "form-control", "placeholder": "Brand"}
             ),
             "weight": forms.NumberInput(
-                attrs={"class": "form-floating", "placeholder": "Weight"}
+                attrs={"class": "form-control", "placeholder": "Weight"}
             ),
             "category": forms.Select(
-                attrs={"class": "form-floating", "placeholder": "Category"}
+                attrs={"class": "form-control", "placeholder": "Category"}
             ),
             "image1": forms.FileInput(
-                attrs={"class": "form-floating", "placeholder": "Image 1"}
+                attrs={"class": "form-control", "placeholder": "Image 1"}
             ),
             "image2": forms.FileInput(
-                attrs={"class": "form-floating", "placeholder": "Image 2"}
+                attrs={"class": "form-control", "placeholder": "Image 2"}
             ),
             "image3": forms.FileInput(
-                attrs={"class": "form-floating", "placeholder": "Image 3"}
+                attrs={"class": "form-control", "placeholder": "Image 3"}
             ),
         }
 
@@ -59,9 +59,9 @@ class CategoryForm(forms.ModelForm):
 
         widgets = {
             "title": forms.TextInput(
-                attrs={"class": "form-floating", "placeholder": "Category Title"}
+                attrs={"class": "form-control", "placeholder": "Category Title"}
             ),
             "description": forms.Textarea(
-                attrs={"class": "form-floating", "placeholder": "Category Description"}
+                attrs={"class": "form-control", "placeholder": "Category Description"}
             ),
         }
